@@ -1,0 +1,265 @@
+/* quiz.css */
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.quiz-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.university-logo {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.quiz-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #003366;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.quiz-subtitle {
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+}
+
+.timer-container {
+  background-color: #f8f8f8;
+  padding: 10px 20px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  border: 1px solid #e0e0e0;
+}
+
+.timer-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #003366;
+}
+
+.timer-warning {
+  color: #ff3333;
+}
+
+.question-container {
+  flex: 1;
+  margin-bottom: 30px;
+}
+
+.question-number {
+  font-size: 18px;
+  font-weight: bold;
+  color: #003366;
+  margin-bottom: 15px;
+}
+
+.question-text {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.option {
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.option:hover {
+  background-color: #f0f7ff;
+  border-color: #b3d4ff;
+}
+
+.option.selected {
+  background-color: #e3f2fd;
+  border-color: #2196f3;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  margin-right: 15px;
+  font-weight: bold;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.option.selected .option-label {
+  background-color: #2196f3;
+  color: white;
+}
+
+.option-text {
+  flex: 1;
+}
+
+.navigation-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.nav-button {
+  padding: 12px 25px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #00498f;
+}
+
+.nav-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.questions-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.question-button {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.question-button:hover {
+  background-color: #e0e0e0;
+}
+
+.question-button.visited {
+  background-color: #e8f5e9;
+  border-color: #a5d6a7;
+}
+
+.question-button.answered {
+  background-color: #2196f3;
+  color: white;
+  border-color: #1976d2;
+}
+
+.question-button.current {
+  border: 2px solid #ff9800;
+}
+
+.quiz-completed {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.completion-message {
+  font-size: 24px;
+  font-weight: bold;
+  color: #003366;
+  margin-bottom: 20px;
+}
+
+.completion-details {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .quiz-container {
+    padding: 15px;
+  }
+
+  .questions-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .quiz-title {
+    font-size: 20px;
+  }
+
+  .question-text {
+    font-size: 16px;
+  }
+
+  .option {
+    padding: 12px;
+  }
+
+  .nav-button {
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .questions-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .university-logo {
+    width: 150px;
+  }
+}
